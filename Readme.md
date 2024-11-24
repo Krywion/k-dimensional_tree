@@ -1,31 +1,42 @@
+# K-D Tree Point Search Implementation
 
-### Repozytorium zawiera:
-- pliki źródłowe programu w języku C++.
-- plik Makefile, który umożliwia kompilację programu.
-- Dokumentacje programu w formacie docx.
+An efficient C++ implementation of a k-dimensional tree structure for storing and searching nearest neighbor points in multi-dimensional space.
 
+## Repository Contents
 
-Aby uruchomić program należy wpisać kolejno w konsoli 2 poniższe komendy:
+- C++ source files containing the implementation
+- Makefile for easy compilation
+- Detailed documentation in DOCX format
 
-% make
+## Quick Start
 
-% ./myapp
+To compile and run the program, execute these commands in your terminal:
+```bash
+make ./myapp
+```
 
-### Opis problemu: 
-Efektywne przechowywanie i wyszukiwanie współrzędnych punktów leżących najbliżej wskazywanego punktu. 
-Ze względu na wysoką wymiarowość problemu, użycie tradycyjnych struktur danych takich jak listy, tablice jest nieefektywne z czasowego punktu widzenia.
+## Problem Description
 
-### Opis rozwiązania:
-Rozwiązaniem problemu jest zastosowanie struktury k-wymiarowego drzewa, które pozwala na efektywne 
-dzielenie przestrzeni na podstawie wartości współrzędnych punktów. Każdy węzeł tej struktury reprezentuje punkt w przestrzeni d-wymiarowej. 
-Dzielenie polega na porównywaniu wartości dwóch punktów na przemian schodząc głębiej w strukturze drzewa.
+The project addresses the challenge of efficiently storing and searching for coordinates of points closest to a specified point in multi-dimensional space. Traditional data structures like lists and arrays become inefficient from a time complexity perspective due to the high dimensionality of the problem.
 
-### Złożoności czasowe:
+## Solution Overview
 
-Budowanie drzewa – O( n log n) – Drzewa ma log n poziomów przez które musimy porównać aktualnie dodawany punkt, dodanie n punktów to złożoność n log n
+The solution implements a k-dimensional tree structure that enables efficient space partitioning based on point coordinate values. Each node in this structure represents a point in d-dimensional space. The partitioning process involves comparing values of two points alternately while traversing deeper into the tree structure.
 
-Wyszukiwanie najbliższego sąsiada – 0(log n) -  w przypadku gdy wszystkie punkty tworzą zrównoważone drzewo (o najmniejszej głębokości), w najgorszym przypadku złożoność może wynieść O(n).
+## Complexity Analysis
 
-Złożoność pamięciowa – O(n) – przechowujemy zawsze n punktów
+### Time Complexity
+- **Tree Construction**: O(n log n)
+  - The tree has log n levels through which we must compare each newly added point
+  - Adding n points results in n log n complexity
+- **Nearest Neighbor Search**: O(log n)
+  - This is achieved when points form a balanced tree (minimum depth)
+  - Worst case scenario may reach O(n)
 
+### Space Complexity
+- **Memory Usage**: O(n)
+  - Always stores exactly n points
 
+## Technical Details
+
+The implementation focuses on optimizing point storage and retrieval in multi-dimensional space, making it particularly useful for applications requiring efficient nearest-neighbor searches in high-dimensional data sets.
